@@ -16,7 +16,10 @@ const createGame = async () => {
   try {
     const response = await fetch(url, requestOptions);
     const data = await response.json();
-    console.log(data);
+    const gameIdStr = data.result;
+    const regex = /Game with ID: ([A-Za-z0-9]+)/;
+    const match = gameIdStr.match(regex);
+    const gameId = match[1];
   } catch (err) {
     console.log(err);
   }
