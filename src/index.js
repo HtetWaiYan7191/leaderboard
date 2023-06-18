@@ -4,6 +4,7 @@ const refreshBtn = document.getElementById('refresh-button');
 const submitBtn = document.getElementById('submit-button');
 const userNameInput = document.getElementById('user');
 const userScoreInput = document.getElementById('score');
+const scoreBoard = document.querySelector('.score-board');
 let gameId;
 
 const getGameId = async () => {
@@ -38,7 +39,6 @@ const getGameId = async () => {
 
 const createNewScore = async (user, score) => {
   gameId = await getGameId();
-  console.log(gameId)
   const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores/`;
   const newScore = {
     user,
@@ -69,14 +69,20 @@ const getScore = async () => {
   return data.result;
 };
 
+const loadRecentScores = (gameDatas) => {
+  scoreBoard.innerHTML = '';
+  gameDatas.forEach((gameData) => {
+    scoreBoard.innerHTML += `<li>${gameData.user} : ${gameData.score}</li>`;
+  });
+};
+
 submitBtn.addEventListener('click', async () => {
   const userName = userNameInput.value.trim();
   const userScore = userScoreInput.value.trim();
-  const userData = await createNewScore(userName, userScore);
-  console.log(userData);
+  createNewScore(userName, userScore);
 });
 
 refreshBtn.addEventListener('click', async () => {
   const gameDatas = await getScore();
-  console.log(gameDatas);
+  loadRecentScores(gameDatas);
 });
