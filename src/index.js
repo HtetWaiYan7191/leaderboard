@@ -69,9 +69,15 @@ const getScore = async () => {
   return data.result;
 };
 
+const sortScores = (gameDatas) => {
+  const updatedData = [...gameDatas];
+  return updatedData.sort((a, b) => b.score - a.score);
+}
+
 const loadRecentScores = (gameDatas) => {
   scoreBoard.innerHTML = '';
-  gameDatas.forEach((gameData) => {
+  const sortedData = sortScores(gameDatas);
+  sortedData.forEach((gameData) => {
     scoreBoard.innerHTML += `<li>${gameData.user} : ${gameData.score}</li>`;
   });
 };
