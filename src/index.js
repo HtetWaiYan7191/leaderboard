@@ -1,5 +1,10 @@
 import './style.css';
 
+const refreshBtn = document.getElementById('refresh-button');
+const submitBtn = document.getElementById('submit-button');
+const userNameInput = document.getElementById('user');
+const userScoreInput = document.getElementById('score');
+
 const createGame = async () => {
   const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/';
   const gameName = {
@@ -27,6 +32,39 @@ const createGame = async () => {
   }
 };
 
+const createNewScore = async (user, score) => {
+  const gameId = await createGame();
+  const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores`;
+  const newScore = {
+    user,
+    score,
+  };
+  const requestOptions = {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json; charset=UTF-8',
+    },
+    body: JSON.stringify(newScore),
+  };
+
+  try {
+    const response = await fetch(url, requestOptions);
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } catch (err) {
+    console.log(err);
+    throw err;
+  }
+};
+
+submitBtn.addEventListener('click', async () => {
+  const userName = userNameInput.value.trim();
+  const userScore = userScoreInput.value.trim();
+  const userData = await createNewScore(userName, userScore);
+  console.log(userData);
+});
+
 const getScore = async () => {
   try {
     const gameId = await createGame();
@@ -38,11 +76,9 @@ const getScore = async () => {
     throw error;
   }
 };
-
-const refreshBtn = document.getElementById('refresh-button');
 refreshBtn.addEventListener('click', async () => {
-  const result = await getScore();
-  console.log(result);
+  const gameDatas = await getScore();
+  console.log(gameDatas);
 });
 
 createGame();
