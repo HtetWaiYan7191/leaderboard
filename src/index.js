@@ -1,3 +1,4 @@
+import { create } from 'lodash';
 import './style.css';
 
 const refreshBtn = document.getElementById('refresh-button');
@@ -5,6 +6,7 @@ const submitBtn = document.getElementById('submit-button');
 const userNameInput = document.getElementById('user');
 const userScoreInput = document.getElementById('score');
 const scoreBoard = document.querySelector('.score-board');
+const completedSentence = document.getElementById('completed-sentence');
 let gameId;
 
 const getGameId = async () => {
@@ -55,7 +57,7 @@ const createNewScore = async (user, score) => {
   try {
     const response = await fetch(url, requestOptions);
     const data = await response.json();
-    return data;
+    return data.result;
   } catch (err) {
     console.log(err);
     throw err;
@@ -72,7 +74,7 @@ const getScore = async () => {
 const sortScores = (gameDatas) => {
   const updatedData = [...gameDatas];
   return updatedData.sort((a, b) => b.score - a.score);
-}
+};
 
 const loadRecentScores = (gameDatas) => {
   scoreBoard.innerHTML = '';
@@ -85,7 +87,12 @@ const loadRecentScores = (gameDatas) => {
 submitBtn.addEventListener('click', async () => {
   const userName = userNameInput.value.trim();
   const userScore = userScoreInput.value.trim();
-  createNewScore(userName, userScore);
+  let createdComplete = await createNewScore(userName, userScore);
+  createdComplete = createdComplete.toString();
+  console.log(createdComplete)
+  completedSentence.textContent = `${createdComplete}`;
+  userNameInput.value = '';
+  userScoreInput.value = '';
 });
 
 refreshBtn.addEventListener('click', async () => {
