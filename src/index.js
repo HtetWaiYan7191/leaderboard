@@ -4,8 +4,12 @@ const refreshBtn = document.getElementById('refresh-button');
 const submitBtn = document.getElementById('submit-button');
 const userNameInput = document.getElementById('user');
 const userScoreInput = document.getElementById('score');
+let gameId;
 
-const createGame = async () => {
+const getGameId = async () => {
+  if (gameId) {
+    return gameId;
+  }
   const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/';
   const gameName = {
     name: 'My cool new game',
@@ -33,8 +37,9 @@ const createGame = async () => {
 };
 
 const createNewScore = async (user, score) => {
-  const gameId = await createGame();
-  const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores`;
+  gameId = await getGameId();
+  console.log(gameId)
+  const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores/`;
   const newScore = {
     user,
     score,
@@ -50,12 +55,18 @@ const createNewScore = async (user, score) => {
   try {
     const response = await fetch(url, requestOptions);
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (err) {
     console.log(err);
     throw err;
   }
+};
+
+const getScore = async () => {
+  gameId = await getGameId();
+  const response = await fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores/`, { method: 'GET' });
+  const data = await response.json();
+  return data.result;
 };
 
 submitBtn.addEventListener('click', async () => {
@@ -65,20 +76,7 @@ submitBtn.addEventListener('click', async () => {
   console.log(userData);
 });
 
-const getScore = async () => {
-  try {
-    const gameId = await createGame();
-    const response = await fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores`);
-    const data = await response.json();
-    return data.result;
-  } catch (error) {
-    console.error('Error fetching score:', error);
-    throw error;
-  }
-};
 refreshBtn.addEventListener('click', async () => {
   const gameDatas = await getScore();
   console.log(gameDatas);
 });
-
-createGame();
