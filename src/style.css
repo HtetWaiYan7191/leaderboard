@@ -6,16 +6,75 @@
   margin: 0;
   padding: 0;
   font-family: 'Rajdhani', sans-serif;
+  color: var(--text-color);
+}
+
+:root {
+  --background-color:#03001C;
+  --text-color:#5B8FB9;
+  --secondary-color:#C147E9;
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+h2 {
+  font-size: 3rem;
 }
 
 #main-section {
   width: 65%;
   margin: 2rem auto;
+  padding: 2rem;
+  /* border: 1px solid var(--secondary-color); */
+  border-radius: 15px;
+}
+
+header h1 {
+  font-size: 5rem;
+}
+
+.my-btn {
+  color: var(--background-color);
+  background-color:var(--text-color);
+  border-radius: 12px;
+  width: 6rem;
+  height: 3rem;
+}
+
+.my-btn:hover {
+  background-color: var(--secondary-color);
+  color: #FFFFFF;
+  transition: all 0.5s ease-out;
 }
 
 .add-score-section input {
   width: 60%;
   padding: 6px;
+}
+
+.score-board {
+  border: 1px solid var(--secondary-color);
+  border-radius: 12px;
+  padding-left: 0;
+  overflow: hidden;
+}
+
+.score-board li {
+  color: var(--text-color);
+  padding: 1rem;
+  list-style: none;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.score-board li:nth-child(even) {
+  background-color: rgba(193, 71, 233,0.4);
+}
+
+.score-board li:nth-child(odd) {
+  background-color: rgba(193, 71, 233,0.3);
 }
 
 #add-score-title {
