@@ -33,6 +33,7 @@ h2 {
 
 header h1 {
   font-size: 5rem;
+  animation: headerRightToLeft 1.7s ease-in-out forwards;
 }
 
 .my-btn {
@@ -49,7 +50,13 @@ header h1 {
   color: #FFFFFF;
   transition: all 0.5s ease-out;
 }
+.score-section {
+  animation: slideLeftToRight 1s ease-in-out forwards;
+}
 
+.add-score-section {
+  animation: slideRightToLeft 1s ease-in-out forwards;
+}
 .add-score-section input {
   width: 60%;
   padding: 6px;
@@ -60,6 +67,7 @@ header h1 {
   border-radius: 12px;
   padding-left: 0;
   overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .score-board li {
@@ -119,4 +127,43 @@ header h1 {
   color:#FFFFFF ;
   font-size: 18px;
   padding-left: 0.5rem;
+}
+
+@keyframes slideLeftToRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRightToLeft {
+  0% {
+    transform: translateX(100%);
+    
+  }
+  100% {
+    transform: translateX(0);
+   
+  }
+}
+
+@keyframes headerRightToLeft {
+  0% {
+    transform: translateX(100%);
+    color: var(--text-color);
+  }
+
+  70% {
+    color: var(--background-color);
+  }
+  90% {
+    color: var(--secondary-color);
+  }
+  100% {
+    transform: translateX(0);
+    color: var(--secondary-color);
+    
+  }
 }
