@@ -12,9 +12,10 @@ const completedSentence = document.getElementById('completed-sentence');
 submitBtn.addEventListener('click', async () => {
   const userName = userNameInput.value.trim();
   const userScore = userScoreInput.value.trim();
-  let createdComplete = await createNewScore(userName, userScore);
-  createdComplete = createdComplete.toString();
-  completedSentence.textContent = `${createdComplete}`;
+  createNewScore(userName, userScore);
+  // let createdComplete = await createNewScore(userName, userScore);
+  // createdComplete = createdComplete.toString();
+  // completedSentence.textContent = `${createdComplete}`;
   userNameInput.value = '';
   userScoreInput.value = '';
 });
