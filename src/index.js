@@ -7,7 +7,7 @@ const refreshBtn = document.getElementById('refresh-button');
 const submitBtn = document.getElementById('submit-button');
 const userNameInput = document.getElementById('user');
 const userScoreInput = document.getElementById('score');
-const completedSentence = document.getElementById('completed-sentence');
+// const completedSentence = document.getElementById('completed-sentence');
 
 submitBtn.addEventListener('click', async () => {
   const userName = userNameInput.value.trim();
