@@ -36,7 +36,8 @@ header h1 {
 }
 
 .my-btn {
-  color: var(--background-color);
+  color: black;
+  font-weight: 500;
   background-color:var(--text-color);
   border-radius: 12px;
   width: 6rem;
@@ -67,16 +68,55 @@ header h1 {
   list-style: none;
   font-weight: bold;
   font-size: 20px;
+  cursor: pointer;
 }
-
+.score-board li:hover {
+   font-size: 1.7rem;
+  transition: all 0.3s ease-in;
+}
 .score-board li:nth-child(even) {
   background-color: rgba(193, 71, 233,0.4);
+}
+
+.score-board li:nth-child(even):hover {
+   background-color: rgba(193, 71, 233,0.5);
+   transition: all 0.4s ease-in-out;
 }
 
 .score-board li:nth-child(odd) {
   background-color: rgba(193, 71, 233,0.3);
 }
 
+.score-board li:nth-child(odd):hover {
+  background-color: rgba(193, 71, 233,0.6);
+  transition: all 0.3s ease-in;
+}
+
 #add-score-title {
   margin-left: 15px;
+}
+
+.add-score-section input {
+  background-color: rgb(91, 143, 185,0.5);
+  color:white;
+  cursor: pointer;
+  outline: none; /* Remove default outline */
+  border: none;
+  box-shadow: 0 0 0 2px var(--secondary-color);
+  border-radius: 16px;
+  padding: 10px;
+}
+
+.add-score-section input:focus{
+  outline:2px solid #2F58CD;
+}
+
+.add-score-section input:hover {
+  background-color: rgb(91, 143, 185,0.2) ;
+}
+
+::placeholder {
+  color:#FFFFFF ;
+  font-size: 18px;
+  padding-left: 0.5rem;
 }
