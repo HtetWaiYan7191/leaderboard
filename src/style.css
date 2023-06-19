@@ -10,9 +10,9 @@
 }
 
 :root {
-  --background-color:#03001C;
-  --text-color:#5B8FB9;
-  --secondary-color:#C147E9;
+  --background-color: #03001c;
+  --text-color: #5b8fb9;
+  --secondary-color: #c147e9;
 }
 
 body {
@@ -27,6 +27,7 @@ h2 {
   width: 65%;
   margin: 2rem auto;
   padding: 2rem;
+
   /* border: 1px solid var(--secondary-color); */
   border-radius: 15px;
 }
@@ -39,7 +40,7 @@ header h1 {
 .my-btn {
   color: black;
   font-weight: 500;
-  background-color:var(--text-color);
+  background-color: var(--text-color);
   border-radius: 12px;
   width: 6rem;
   height: 3rem;
@@ -47,9 +48,10 @@ header h1 {
 
 .my-btn:hover {
   background-color: var(--secondary-color);
-  color: #FFFFFF;
+  color: #fff;
   transition: all 0.5s ease-out;
 }
+
 .score-section {
   animation: slideLeftToRight 1s ease-in-out forwards;
 }
@@ -57,9 +59,17 @@ header h1 {
 .add-score-section {
   animation: slideRightToLeft 1s ease-in-out forwards;
 }
+
 .add-score-section input {
+  background-color: rgb(91, 143, 185, 0.5);
+  color: white;
+  cursor: pointer;
+  outline: none; /* Remove default outline */
+  border: none;
+  box-shadow: 0 0 0 2px var(--secondary-color);
+  border-radius: 16px;
+  padding: 10px;
   width: 60%;
-  padding: 6px;
 }
 
 .score-board {
@@ -78,25 +88,27 @@ header h1 {
   font-size: 20px;
   cursor: pointer;
 }
+
 .score-board li:hover {
-   font-size: 1.7rem;
+  font-size: 1.7rem;
   transition: all 0.3s ease-in;
 }
-.score-board li:nth-child(even) {
-  background-color: rgba(193, 71, 233,0.4);
-}
 
-.score-board li:nth-child(even):hover {
-   background-color: rgba(193, 71, 233,0.5);
-   transition: all 0.4s ease-in-out;
+.score-board li:nth-child(even) {
+  background-color: rgba(193, 71, 233, 0.4);
 }
 
 .score-board li:nth-child(odd) {
-  background-color: rgba(193, 71, 233,0.3);
+  background-color: rgba(193, 71, 233, 0.3);
+}
+
+.score-board li:nth-child(even):hover {
+  background-color: rgba(193, 71, 233, 0.5);
+  transition: all 0.4s ease-in-out;
 }
 
 .score-board li:nth-child(odd):hover {
-  background-color: rgba(193, 71, 233,0.6);
+  background-color: rgba(193, 71, 233, 0.6);
   transition: all 0.3s ease-in;
 }
 
@@ -104,27 +116,16 @@ header h1 {
   margin-left: 15px;
 }
 
-.add-score-section input {
-  background-color: rgb(91, 143, 185,0.5);
-  color:white;
-  cursor: pointer;
-  outline: none; /* Remove default outline */
-  border: none;
-  box-shadow: 0 0 0 2px var(--secondary-color);
-  border-radius: 16px;
-  padding: 10px;
-}
-
-.add-score-section input:focus{
-  outline:2px solid #2F58CD;
+.add-score-section input:focus {
+  outline: 2px solid #2f58cd;
 }
 
 .add-score-section input:hover {
-  background-color: rgb(91, 143, 185,0.2) ;
+  background-color: rgb(91, 143, 185, 0.2);
 }
 
 ::placeholder {
-  color:#FFFFFF ;
+  color: #fff;
   font-size: 18px;
   padding-left: 0.5rem;
 }
@@ -133,6 +134,7 @@ header h1 {
   0% {
     transform: translateX(-100%);
   }
+
   100% {
     transform: translateX(0);
   }
@@ -141,11 +143,10 @@ header h1 {
 @keyframes slideRightToLeft {
   0% {
     transform: translateX(100%);
-    
   }
+
   100% {
     transform: translateX(0);
-   
   }
 }
 
@@ -158,12 +159,13 @@ header h1 {
   70% {
     color: var(--background-color);
   }
+
   90% {
     color: var(--secondary-color);
   }
+
   100% {
     transform: translateX(0);
     color: var(--secondary-color);
-    
   }
 }
