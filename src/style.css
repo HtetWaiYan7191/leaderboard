@@ -27,8 +27,6 @@ h2 {
   width: 65%;
   margin: 2rem auto;
   padding: 2rem;
-
-  /* border: 1px solid var(--secondary-color); */
   border-radius: 15px;
 }
 
@@ -50,6 +48,10 @@ header h1 {
   background-color: var(--secondary-color);
   color: #fff;
   transition: all 0.5s ease-out;
+}
+
+#refresh-button {
+  animation: rotate 2s linear infinite forwards;
 }
 
 .score-section {
@@ -130,12 +132,16 @@ header h1 {
   padding-left: 0.5rem;
 }
 .error-text {
+  opacity: 0;
   display: none;
   font-size: 20px;
   font-weight: 600;
   color: rgb(183, 13, 13);
+  
 }
 .show-error {
+  animation: fade 0.7s ease-in-out forwards;
+  margin: 10px 0px;
   display: block;
 }
 
@@ -178,3 +184,35 @@ header h1 {
     color: var(--secondary-color);
   }
 }
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(15deg);
+  }
+
+  25% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(-15deg);
+  }
+
+  75% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(15deg);
+  }
+}
+
