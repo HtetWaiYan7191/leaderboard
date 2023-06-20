@@ -10,18 +10,14 @@
     <header class="my-4 ms-3">
         <h1>Leaderboard</h1>
     </header>
-
-    <div class="success-box my-4 w-50 mx-auto">
-        <span class="success-sentence" id="completed-sentence"></span>
-    </div>
-    
+      
     <main class="row" id="main-section">
         <div class="col-6 score-section">
             <div class="score-title d-flex mb-3 justify-content-between">
                 <h2>Recent Scores</h2>
-                <button class="py-2 px-3" id="refresh-button">Refresh</button>
+                <button class="my-btn" id="refresh-button">Refresh</button>
             </div>
-            <ul class="score-board" style="border: 1px solid black;">
+            <ul class="score-board">
             </ul>
         </div>
         <div class="col-6 add-score-section">
@@ -30,7 +26,8 @@
             </h2>
             <input type="text" placeholder="Your Name" class="d-block m-3" id="user">
             <input type="text" placeholder="Your Score" class="d-block m-3" id="score">
-            <button class="d-block m-3 py-2 px-3" id="submit-button">Submit</button>
+            <span class="error-text mx-3" id="error-message">Please Add Name And Score</span>
+            <button class="mx-3 my-0 py-2 px-3 my-btn" id="submit-button">Submit</button>
         </div>
     </main>
 </body>

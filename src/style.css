@@ -6,18 +6,214 @@
   margin: 0;
   padding: 0;
   font-family: 'Rajdhani', sans-serif;
+  color: var(--text-color);
+}
+
+:root {
+  --background-color: #03001c;
+  --text-color: #5b8fb9;
+  --secondary-color: #c147e9;
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+h2 {
+  font-size: 3rem;
 }
 
 #main-section {
   width: 65%;
   margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 15px;
+}
+
+header h1 {
+  font-size: 5rem;
+  animation: headerRightToLeft 1.7s ease-in-out forwards;
+}
+
+.my-btn {
+  color: black;
+  font-weight: 500;
+  background-color: var(--text-color);
+  border-radius: 12px;
+  width: 6rem;
+  height: 3rem;
+}
+
+.my-btn:hover {
+  background-color: var(--secondary-color);
+  color: #fff;
+  transition: all 0.5s ease-out;
+}
+
+#refresh-button {
+  animation: rotate 2s linear infinite forwards;
+}
+
+.score-section {
+  animation: slideLeftToRight 1s ease-in-out forwards;
+}
+
+.add-score-section {
+  animation: slideRightToLeft 1s ease-in-out forwards;
 }
 
 .add-score-section input {
+  background-color: rgb(91, 143, 185, 0.5);
+  color: white;
+  cursor: pointer;
+  outline: none; /* Remove default outline */
+  border: none;
+  box-shadow: 0 0 0 2px var(--secondary-color);
+  border-radius: 16px;
+  padding: 10px;
   width: 60%;
-  padding: 6px;
+}
+
+.score-board {
+  border: 1px solid var(--secondary-color);
+  border-radius: 12px;
+  padding-left: 0;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.score-board li {
+  color: var(--text-color);
+  padding: 1rem;
+  list-style: none;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.score-board li:hover {
+  font-size: 1.7rem;
+  transition: all 0.3s ease-in;
+}
+
+.score-board li:nth-child(even) {
+  background-color: rgba(193, 71, 233, 0.4);
+}
+
+.score-board li:nth-child(odd) {
+  background-color: rgba(193, 71, 233, 0.3);
+}
+
+.score-board li:nth-child(even):hover {
+  background-color: rgba(193, 71, 233, 0.5);
+  transition: all 0.4s ease-in-out;
+}
+
+.score-board li:nth-child(odd):hover {
+  background-color: rgba(193, 71, 233, 0.6);
+  transition: all 0.3s ease-in;
 }
 
 #add-score-title {
   margin-left: 15px;
+}
+
+.add-score-section input:focus {
+  outline: 2px solid #2f58cd;
+}
+
+.add-score-section input:hover {
+  background-color: rgb(91, 143, 185, 0.2);
+}
+
+::placeholder {
+  color: #fff;
+  font-size: 18px;
+  padding-left: 0.5rem;
+}
+
+.error-text {
+  opacity: 0;
+  display: none;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(183, 13, 13);
+}
+
+.show-error {
+  animation: fade 0.7s ease-in-out forwards;
+  margin: 10px 0;
+  display: block;
+}
+
+@keyframes slideLeftToRight {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRightToLeft {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes headerRightToLeft {
+  0% {
+    transform: translateX(100%);
+    color: var(--text-color);
+  }
+
+  70% {
+    color: var(--background-color);
+  }
+
+  90% {
+    color: var(--secondary-color);
+  }
+
+  100% {
+    transform: translateX(0);
+    color: var(--secondary-color);
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(15deg);
+  }
+
+  25% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(-15deg);
+  }
+
+  75% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(15deg);
+  }
 }
