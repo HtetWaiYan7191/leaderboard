@@ -129,6 +129,15 @@ header h1 {
   font-size: 18px;
   padding-left: 0.5rem;
 }
+.error-text {
+  display: none;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(183, 13, 13);
+}
+.show-error {
+  display: block;
+}
 
 @keyframes slideLeftToRight {
   0% {
