@@ -131,17 +131,18 @@ header h1 {
   font-size: 18px;
   padding-left: 0.5rem;
 }
+
 .error-text {
   opacity: 0;
   display: none;
   font-size: 20px;
   font-weight: 600;
   color: rgb(183, 13, 13);
-  
 }
+
 .show-error {
   animation: fade 0.7s ease-in-out forwards;
-  margin: 10px 0px;
+  margin: 10px 0;
   display: block;
 }
 
@@ -189,6 +190,7 @@ header h1 {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -215,4 +217,3 @@ header h1 {
     transform: rotate(15deg);
   }
 }
-

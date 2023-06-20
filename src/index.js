@@ -17,10 +17,6 @@ submitBtn.addEventListener('click', async () => {
   const status = checkFormError(userName, userScore);
   errorMessage.classList.toggle('show-error', !status);
   createNewScore(userName, userScore);
-
-  // let createdComplete = await createNewScore(userName, userScore);
-  // createdComplete = createdComplete.toString();
-  // completedSentence.textContent = `${createdComplete}`;
   userNameInput.value = '';
   userScoreInput.value = '';
 });
